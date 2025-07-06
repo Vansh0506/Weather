@@ -1,0 +1,116 @@
+:root {
+  --bg-start: #0a0a0a;
+  --bg-mid: #121212;
+  --bg-end: #1a1a1a;
+  --glass-bg: rgba(30, 30, 30, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --accent1: #04f9f9;
+  --accent2: #00ffe7;
+  --text: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.8);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top right, var(--bg-start), var(--bg-mid), var(--bg-end));
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-mid);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent2);
+  border-radius: 4px;
+}
+.container {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 12px 36px var(--shadow);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px var(--accent1), 0 0 16px var(--accent2);
+}
+select,
+button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+select {
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text);
+}
+button {
+  position: relative;
+  background: var(--accent1);
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 6px var(--accent1), 0 0 12px var(--accent2);
+}
+button::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+button:hover::before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+button:hover {
+  background: linear-gradient(to right, var(--accent1), var(--accent2));
+  box-shadow: 0 0 12px var(--accent1), 0 0 24px var(--accent2), 0 0 48px var(--accent2);
+}
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 8px 24px var(--shadow), 0 0 8px var(--accent2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 32px var(--shadow), 0 0 16px var(--accent1), 0 0 32px var(--accent2);
+}
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
